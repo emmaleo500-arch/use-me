@@ -1,0 +1,316 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Contact - Emmanuel Junior Boakye - Portfolio</title>
+    <style>
+        .contact-section {
+            min-height: calc(100vh - 80px);
+            padding: 5rem 0;
+        }
+        .section-title {
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+        .section-title .highlight {
+            color: var(--primary);
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            opacity: 0;
+            animation: fadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            animation-delay: 0.2s;
+        }
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        .contact-info {
+            opacity: 0;
+            animation: fadeRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+        .contact-info h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+        }
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        .contact-item:hover {
+            border-color: var(--primary);
+            background: rgba(249, 83, 45, 0.03);
+        }
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            min-width: 24px;
+            margin-top: 2px;
+        }
+        .contact-item .contact-detail h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 0.25rem;
+        }
+        .contact-item .contact-detail p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .social a:hover {
+            color: #fff;
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 0 25px var(--primary);
+        }
+        .contact-form-container {
+            opacity: 0;
+            animation: fadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            animation-delay: 0.3s;
+        }
+        .contact-form h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-card);
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(249, 83, 45, 0.1);
+        }
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .form-actions {
+            text-align: center;
+        }
+        @media screen and (max-width: 768px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container page-header">
+            <div class="logo">
+                <a href="index.html">Emmanuel<span>.</span></a>
+            </div>
+            
+            <input type="checkbox" id="click">
+            <label for="click" class="mainicon">
+                <div class="menu">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </label>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" style="--navAni:1">Home</a></li>
+                    <li><a href="about.html" style="--navAni:2">About</a></li>
+                    <li><a href="skills.html" style="--navAni:3">Skills</a></li>
+                    <li><a href="portfolio.html" style="--navAni:4">Portfolio</a></li>
+                    <li><a href="contact.html" class="active" style="--navAni:5">Contact</a></li>
+                </ul>
+            </nav>
+
+            <label class="mode" aria-label="Toggle Dark Mode">
+                <input type="checkbox" id="darkModeToggle">
+                <i class='bx bxs-moon'></i>
+            </label>
+        </div>
+    </header>
+
+    <section class="contact-section container">
+        <h1 class="section-title">Get In <span class="highlight">Touch</span></h1>
+        <p class="section-subtitle">
+            I'm always open to new opportunities and collaborations. Whether you have a project in mind,
+            need a tech consultant, or just want to say hi, feel free to reach out.
+        </p>
+
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <div class="contact-item">
+                    <i class='bx bxs-envelope'></i>
+                    <div class="contact-detail">
+                        <h4>Email</h4>
+                        <p>info@emmanuelboakye.dev</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class='bx bxs-phone'></i>
+                    <div class="contact-detail">
+                        <h4>Phone</h4>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class='bx bxs-location-pin'></i>
+                    <div class="contact-detail">
+                        <h4>Location</h4>
+                        <p>Available for remote work globally</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class='bx bxs-briefcase'></i>
+                    <div class="contact-detail">
+                        <h4>Companies</h4>
+                        <p>CEO of MakerTec | Co-founder of UniLinc</p>
+                    </div>
+                </div>
+
+                <div class="social">
+                    <a href="https://www.linkedin.com/feed/" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                    <a href="https://www.instagram.com/makertec3" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://github.com/emmaleo500-arch" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                    <a href="https://www.youtube.com/channel/UCBzrMFvIEB3oTmnAw3b_OYA" aria-label="YouTube"><i class='bx bxl-youtube'></i></a>
+                </div>
+            </div>
+
+            <div class="contact-form-container">
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" placeholder="Your Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" placeholder="Your Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="Your Message..."></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html">Emmanuel<span>.</span></a>
+                </div>
+
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/feed/" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                    <a href="https://www.instagram.com/makertec3" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://github.com/emmaleo500-arch" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                    <a href="https://www.youtube.com/channel/UCBzrMFvIEB3oTmnAw3b_OYA" aria-label="YouTube"><i class='bx bxl-youtube'></i></a>
+                </div>
+
+                <nav>
+                    <ul class="footer-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="skills.html">Skills</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <div class="footer-bottom">
+                    <span>&copy; 2024 Emmanuel Junior Boakye. All rights reserved.</span>
+                    <span class="highlight">Made with <i class='bx bxs-heart'></i> by Emmanuel Junior Boakye</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,252 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Skills - Emmanuel Junior Boakye - Portfolio</title>
+    <style>
+        .skills-section {
+            min-height: calc(100vh - 80px);
+            padding: 5rem 0;
+        }
+        .section-title {
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+        .section-title .highlight {
+            color: var(--primary);
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            opacity: 0;
+            animation: fadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            animation-delay: 0.2s;
+        }
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+        .skill-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+        }
+        .skill-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .skill-list {
+            list-style: none;
+        }
+        .skill-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-muted);
+        }
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+        .skill-list li i {
+            color: var(--primary);
+            margin-right: 0.5rem;
+        }
+        .skill-progress {
+            margin-top: 1rem;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 4px;
+            transition: width 0.6s ease;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container page-header">
+            <div class="logo">
+                <a href="index.html">Emmanuel<span>.</span></a>
+            </div>
+            
+            <input type="checkbox" id="click">
+            <label for="click" class="mainicon">
+                <div class="menu">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </label>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" style="--navAni:1">Home</a></li>
+                    <li><a href="about.html" style="--navAni:2">About</a></li>
+                    <li><a href="skills.html" class="active" style="--navAni:3">Skills</a></li>
+                    <li><a href="portfolio.html" style="--navAni:4">Portfolio</a></li>
+                    <li><a href="contact.html" style="--navAni:5">Contact</a></li>
+                </ul>
+            </nav>
+
+            <label class="mode" aria-label="Toggle Dark Mode">
+                <input type="checkbox" id="darkModeToggle">
+                <i class='bx bxs-moon'></i>
+            </label>
+        </div>
+    </header>
+
+    <section class="skills-section container">
+        <h1 class="section-title">My <span class="highlight">Skills</span></h1>
+        <p class="section-subtitle">
+            I'm a professional Full Stack Developer with expertise in both front-end and back-end technologies,
+            delivering exceptional web development solutions and seamless user experiences.
+        </p>
+
+        <div class="skills-container">
+            <div class="skill-card">
+                <h3><i class='bx bxl-html5'></i> Frontend Development</h3>
+                <ul class="skill-list">
+                    <li><i class='bx bxl-html5'></i> HTML5</li>
+                    <li><i class='bx bxl-css3'></i> CSS3 / SCSS</li>
+                    <li><i class='bx bxl-javascript'></i> JavaScript (ES6+)</li>
+                    <li><i class='bx bxl-react'></i> React.js</li>
+                    <li><i class='bx bxl-bootstrap'></i> Bootstrap / Tailwind CSS</li>
+                    <li><i class='bx bxl-sass'></i> Responsive Design</li>
+                    <li><i class='bx bx-code'></i> UI/UX Implementation</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3><i class='bx bxl-node-js'></i> Backend Development</h3>
+                <ul class="skill-list">
+                    <li><i class='bx bxl-node-js'></i> Node.js</li>
+                    <li><i class='bx bxl-php'></i> PHP</li>
+                    <li><i class='bx bxl-python'></i> Python</li>
+                    <li><i class='bx bxl-express'></i> Express.js</li>
+                    <li><i class='bx bxl-django'></i> Django</li>
+                    <li><i class='bx bx-code'></i> RESTful APIs</li>
+                    <li><i class='bx bx-code-block'></i> GraphQL</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3><i class='bx bx-database'></i> Databases</h3>
+                <ul class="skill-list">
+                    <li><i class='bx bxl-mysql'></i> MySQL</li>
+                    <li><i class='bx bxl-mongodb'></i> MongoDB</li>
+                    <li><i class='bx bxl-postgresql'></i> PostgreSQL</li>
+                    <li><i class='bx bx-database'></i> Firebase</li>
+                    <li><i class='bx bx-code-block'></i> Database Design</li>
+                    <li><i class='bx bx-code'></i> Sequelize / Mongoose</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="skills-container">
+            <div class="skill-card">
+                <h3><i class='bx bxl-git'></i> Tools & Deployment</h3>
+                <ul class="skill-list">
+                    <li><i class='bx bxl-git'></i> Git / GitHub</li>
+                    <li><i class='bx bxl-docker'></i> Docker</li>
+                    <li><i class='bx bxl-aws'></i> AWS</li>
+                    <li><i class='bx bxl-heroku'></i> Heroku</li>
+                    <li><i class='bx bxl-nginx'></i> Nginx</li>
+                    <li><i class='bx bx-code-block'></i> CI/CD</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3><i class='bx bx-code'></i> Programming</h3>
+                <ul class="skill-list">
+                    <li><i class='bx bxl-javascript'></i> JavaScript</li>
+                    <li><i class='bx bxl-python'></i> Python</li>
+                    <li><i class='bx bxl-php'></i> PHP</li>
+                    <li><i class='bx bxl-node-js'></i> Java</li>
+                    <li><i class='bx bx-code'></i> TypeScript</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3><i class='bx bx-code-alt'></i> Specializations</h3>
+                <ul class="skill-list">
+                    <li><i class='bx bx-check-circle'></i> Full Stack Development</li>
+                    <li><i class='bx bx-check-circle'></i> Web Application Development</li>
+                    <li><i class='bx bx-check-circle'></i> E-commerce Solutions</li>
+                    <li><i class='bx bx-check-circle'></i> API Development</li>
+                    <li><i class='bx bx-check-circle'></i> Project Leadership</li>
+                    <li><i class='bx bx-check-circle'></i> Tech Consulting</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html">Emmanuel<span>.</span></a>
+                </div>
+
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/feed/" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                    <a href="https://www.instagram.com/makertec3" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://github.com/emmaleo500-arch" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                    <a href="https://www.youtube.com/channel/UCBzrMFvIEB3oTmnAw3b_OYA" aria-label="YouTube"><i class='bx bxl-youtube'></i></a>
+                </div>
+
+                <nav>
+                    <ul class="footer-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="skills.html">Skills</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <div class="footer-bottom">
+                    <span>&copy; 2024 Emmanuel Junior Boakye. All rights reserved.</span>
+                    <span class="highlight">Made with <i class='bx bxs-heart'></i> by Emmanuel Junior Boakye</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
