@@ -109,65 +109,57 @@ function showNotification(message, type) {
     }, 4000);
 }
 
-// Load Projects from API
-async function loadProjects() {
-    const portfolioGrid = document.querySelector('.portfolio-grid');
-
-    if (portfolioGrid) {
-        try {
-            const response = await fetch('/api/projects');
-            const result = await response.json();
-
-            if (result.success && result.data) {
-                portfolioGrid.innerHTML = '';
-                portfolioGrid.innerHTML = result.data.map(project => `
-                    <div class="portfolio-card">
-                        <div class="portfolio-img">
-                            <i class='bx ${getProjectIcon(project.image)}'></i>
-                        </div>
-                        <div class="portfolio-content">
-                            <h3>${project.title}</h3>
-                            <p>${project.description}</p>
-                            <div class="portfolio-tags">
-                                ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                            </div>
-                            <div class="portfolio-links">
-                                <a href="${project.github}" aria-label="GitHub"><i class='bx bxl-github'></i></a>
-                                <a href="${project.demo}" aria-label="Live Demo"><i class='bx bx-globe'></i></a>
-                            </div>
-                        </div>
-                    </div>
-                `).join('');
-            }
-        } catch (error) {
-            console.error('Failed to load projects:', error);
-        }
-    }
-}
-
-function getProjectIcon(image) {
-    const icons = {
-        'react': "bxl-react",
-        'php': "bxl-php",
-        'node': "bxl-node-js",
-        'html': "bxl-html5",
-        'python': "bxl-python",
-        'mongodb': "bxl-mongodb"
-    };
-    return icons[image] || 'bxs-code-block';
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    loadProjects();
-
-    // Portfolio Filter Buttons
+// Portfolio Filter Functionality
+function setupPortfolioFilters() {
     const filterBtns = document.querySelectorAll('.filter-btn');
-    if (filterBtns.length > 0) {
+    const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+    if (filterBtns.length > 0 && portfolioCards.length > 0) {
         filterBtns.forEach(btn => {
             btn.addEventListener('click', function() {
+                // Remove active class from all buttons
                 filterBtns.forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
+
+                const filterValue = this.getAttribute('data-filter');
+
+                // Show/hide portfolio cards based on filter
+                portfolioCards.forEach(card => {
+                    const cardTags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase());
+                    
+                    if (filterValue === 'all') {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                        }, 10);
+                    } else if (cardTags.includes(filterValue)) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
             });
         });
     }
+}
+
+// Animate portfolio cards on load
+function animatePortfolioCards() {
+    const portfolioCards = document.querySelectorAll('.portfolio-card');
+    if (portfolioCards.length > 0) {
+        portfolioCards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    setupPortfolioFilters();
+    animatePortfolioCards();
 });
